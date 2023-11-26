@@ -1,6 +1,6 @@
 # OneWare.AI
 
-Template for creating Extensions for OneWare Studio
+AI Extension for OneWare
 
 ![image](https://raw.githubusercontent.com/ProtopSolutions/OneWare.AI/main/Icon.png)
 
