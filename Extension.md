@@ -2,4 +2,7 @@
 
 ### Get Started
 
-> This text will be visible in the builtin package manager
+1. Install Extension
+2. Create new AI Model
+3. Train Model
+4. Add Model to FPGA Design

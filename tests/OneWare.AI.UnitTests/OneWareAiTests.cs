@@ -2,7 +2,7 @@
 
 namespace OneWare.AI.UnitTests;
 
-public class OneWareAITests
+public class OneWareAiTests
 {
     //Add your unit tests here
     

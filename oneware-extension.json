@@ -1,11 +1,11 @@
 {
   "category": "Tools",
   "type": "Plugin",
-  "name": "OneWare.AI Extension",
-  "id": "OneWare.AIModule",
-  "description": "OneWare.AI for OneWare",
+  "name": "AI Generator",
+  "id": "OneWareAiModule",
+  "description": "Lets you create powerful AI Models for FPGAs",
   "license": "MIT",
-  "iconUrl": "https://raw.githubusercontent.com/ProtopSolutions/OneWare.AI/main/Icon.png",
+  "iconUrl": "https://bertha.ai/wp-content/uploads/2022/10/Bertha-email-icon.png",
   "tabs": [
     {
       "title": "Readme",

@@ -6,7 +6,7 @@ using Prism.Modularity;
 
 namespace OneWare.AI;
 
-public class OneWareAIModule : IModule
+public class OneWareAiModule : IModule
 {
     public void RegisterTypes(IContainerRegistry containerRegistry)
     {
