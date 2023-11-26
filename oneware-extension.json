@@ -1,0 +1,48 @@
+{
+  "category": "Tools",
+  "type": "Plugin",
+  "name": "OneWare.AI Extension",
+  "id": "OneWare.AIModule",
+  "description": "OneWare.AI for OneWare",
+  "license": "MIT",
+  "iconUrl": "https://raw.githubusercontent.com/ProtopSolutions/OneWare.AI/main/Icon.png",
+  "tabs": [
+    {
+      "title": "Readme",
+      "contentUrl": "https://raw.githubusercontent.com/ProtopSolutions/OneWare.AI/main/Extension.md"
+    },
+    {
+      "title": "License",
+      "contentUrl": "https://raw.githubusercontent.com/ProtopSolutions/OneWare.AI/main/License.md"
+    }
+  ],
+  "links": [
+    {
+      "name": "Github",
+      "url": "https://github.com/ProtopSolutions/OneWare.AI"
+    }
+  ],
+  "versions": [
+    {
+      "version": "0.1",
+      "targets": [
+        {
+          "target": "win-x64",
+          "url": "https://github.com/ProtopSolutions/OneWare.AI/releases/download/0.1/OneWare.AIExtension_0.1_win-x64.zip"
+        },
+        {
+          "target": "linux-x64",
+          "url": "https://github.com/ProtopSolutions/OneWare.AI/releases/download/0.1/OneWare.AIExtension_0.1_linux-x64.zip"
+        },
+        {
+          "target": "osx-x64",
+          "url": "https://github.com/ProtopSolutions/OneWare.AI/releases/download/0.1/OneWare.AIExtension_0.1_osx-x64.zip"
+        },
+        {
+          "target": "osx-arm64",
+          "url": "https://github.com/ProtopSolutions/OneWare.AI/releases/download/0.1/OneWare.AIExtension_0.1_osx-arm64.zip"
+        }
+      ]
+    }
+  ]
+}
