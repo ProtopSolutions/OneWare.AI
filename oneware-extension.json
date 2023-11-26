@@ -5,7 +5,7 @@
   "id": "OneWareAiModule",
   "description": "Lets you create powerful AI Models for FPGAs",
   "license": "MIT",
-  "iconUrl": "https://bertha.ai/wp-content/uploads/2022/10/Bertha-email-icon.png",
+  "iconUrl": "https://raw.githubusercontent.com/ProtopSolutions/OneWare.AI/main/Icon.png",
   "tabs": [
     {
       "title": "Readme",
