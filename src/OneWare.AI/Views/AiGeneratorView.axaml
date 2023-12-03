@@ -3,9 +3,22 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:controls="clr-namespace:OneWare.SDK.Controls;assembly=OneWare.SDK"
+             xmlns:viewModels="clr-namespace:OneWare.AI.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              PrefWidth="600" PrefHeight="700"
-             Title="OneWare AI Creator"
-             x:Class="OneWare.AI.Views.AiGeneratorView">
-    Welcome to Avalonia!
+             Title="OneWare AI Generator"
+             Name="AiGeneratorViewView"
+             x:Class="OneWare.AI.Views.AiGeneratorView" x:DataType="viewModels:AiGeneratorViewModel">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Bottom" Margin="8" Classes="WindowButtons" HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom">
+            <Button Background="{DynamicResource HighlightBrush}" Command="{Binding Create}"
+                    CommandParameter="{Binding #AiGeneratorViewView}">
+                <TextBlock Text="Save" />
+            </Button>
+        </StackPanel>
+        <ScrollViewer DockPanel.Dock="Top" >
+            <ContentControl Padding="4" Content="{Binding SettingsCollection}"/>
+        </ScrollViewer>
+    </DockPanel>
 </controls:FlexibleWindow>

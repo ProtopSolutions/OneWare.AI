@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.Input;
+using OneWare.AI.ViewModels;
 using OneWare.AI.Views;
 using OneWare.SDK.Models;
 using OneWare.SDK.Services;
@@ -37,7 +38,10 @@ public class OneWareAiModule : IModule
         windowService.RegisterMenuItem("MainWindow_MainMenu/AI", new MenuItemViewModel("OpenAiCreator")
         {
             Header = "Open AI Generator",
-            Command = new AsyncRelayCommand(() => windowService.ShowDialogAsync(new AiGeneratorView()))
+            Command = new AsyncRelayCommand(() => windowService.ShowDialogAsync(new AiGeneratorView()
+            {
+                DataContext = new AiGeneratorViewModel()
+            }))
         });
     }
 }
