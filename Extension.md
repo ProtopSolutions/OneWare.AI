@@ -1,4 +1,4 @@
-![Icon](https://raw.githubusercontent.com/ProtopSolutions/OneWare.AI/main/Icon.png)
+![Icon](https://raw.githubusercontent.com/ProtopSolutions/OneWare.AI/main/Banner.png)
 
 ### Get Started
 

@@ -1,6 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.Input;
+using OneWare.AI.Views;
 using OneWare.SDK.Models;
 using OneWare.SDK.Services;
+using OneWare.SDK.ViewModels;
 using Prism.Ioc;
 using Prism.Modularity;
 
@@ -14,6 +16,8 @@ public class OneWareAiModule : IModule
 
     public void OnInitialized(IContainerProvider containerProvider)
     {
+        var windowService = containerProvider.Resolve<IWindowService>();
+        
         //This example adds a context menu for .vhd files
         containerProvider.Resolve<IProjectExplorerService>().RegisterConstructContextMenu(x =>
         {
@@ -21,13 +25,19 @@ public class OneWareAiModule : IModule
             {
                 return new[]
                 {
-                    new MenuItemModel("Hello World")
+                    new MenuItemViewModel("Hello World")
                     {
                         Header = "Hello World"
                     }
                 };
             }
             return null;
+        });
+        
+        windowService.RegisterMenuItem("MainWindow_MainMenu/AI", new MenuItemViewModel("OpenAiCreator")
+        {
+            Header = "Open AI Generator",
+            Command = new AsyncRelayCommand(() => windowService.ShowDialogAsync(new AiGeneratorView()))
         });
     }
 }
