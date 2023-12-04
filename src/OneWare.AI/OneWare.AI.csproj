@@ -9,7 +9,7 @@
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
         <SelfContained>false</SelfContained>
     </PropertyGroup>
-
+    
     <ItemGroup>
         <Content Include="oneware.json" CopyToOutputDirectory="PreserveNewest"/>
         <AvaloniaResource Include="Assets\**\*.*" />
@@ -18,6 +18,10 @@
     <ItemGroup>
         <PackageReference Include="OneWare.SDK" Version="0.12.4" Private="false" ExcludeAssets="runtime;Native" />
         <PackageReference Include="OneWare.Settings" Version="0.12.4" Private="false" ExcludeAssets="runtime;Native" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <UpToDateCheckInput Remove="Views\Pages\PageOne.axaml" />
     </ItemGroup>
     
 </Project>

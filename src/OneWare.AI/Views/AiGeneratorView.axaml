@@ -9,6 +9,7 @@
              Title="OneWare AI Generator"
              Name="AiGeneratorViewView"
              WindowStartupLocation="CenterOwner"
+             Padding="4"
              x:Class="OneWare.AI.Views.AiGeneratorView" x:DataType="viewModels:AiGeneratorViewModel">
     <DockPanel>
         <StackPanel DockPanel.Dock="Bottom" Margin="8" Classes="WindowButtons" HorizontalAlignment="Right"
@@ -17,9 +18,9 @@
                     CommandParameter="{Binding #AiGeneratorViewView}">
                 <TextBlock Text="Cancel" />
             </Button>
-            <Button Background="{DynamicResource HighlightBrush}" Command="{Binding CreateCommand}"
+            <Button Background="{DynamicResource HighlightBrush}" Command="{Binding ContinueCommand}"
                     CommandParameter="{Binding #AiGeneratorViewView}">
-                <TextBlock Text="Save" />
+                <TextBlock Text="Continue" />
             </Button>
         </StackPanel>
         <ScrollViewer DockPanel.Dock="Top" >
