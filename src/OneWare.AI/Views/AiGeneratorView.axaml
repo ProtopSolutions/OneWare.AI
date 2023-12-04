@@ -8,6 +8,7 @@
              PrefWidth="600" PrefHeight="700"
              Title="OneWare AI Generator"
              Name="AiGeneratorViewView"
+             WindowStartupLocation="CenterOwner"
              x:Class="OneWare.AI.Views.AiGeneratorView" x:DataType="viewModels:AiGeneratorViewModel">
     <DockPanel>
         <StackPanel DockPanel.Dock="Bottom" Margin="8" Classes="WindowButtons" HorizontalAlignment="Right"

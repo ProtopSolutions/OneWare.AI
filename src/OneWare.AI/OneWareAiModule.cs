@@ -35,7 +35,13 @@ public class OneWareAiModule : IModule
             return null;
         });
         
-        windowService.RegisterMenuItem("MainWindow_MainMenu/AI", new MenuItemViewModel("OpenAiCreator")
+        windowService.RegisterMenuItem("MainWindow_MainMenu", new MenuItemViewModel("Ai")
+        {
+            Header = "AI",
+            Priority = 120
+        });
+        
+        windowService.RegisterMenuItem("MainWindow_MainMenu/Ai", new MenuItemViewModel("OpenAiCreator")
         {
             Header = "Open AI Generator",
             Command = new AsyncRelayCommand(() => windowService.ShowDialogAsync(new AiGeneratorView()
