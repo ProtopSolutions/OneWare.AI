@@ -23,8 +23,6 @@
                 <TextBlock Text="Continue" />
             </Button>
         </StackPanel>
-        <ScrollViewer DockPanel.Dock="Top" >
-            <ContentControl Padding="4" Content="{Binding SettingsCollection}"/>
-        </ScrollViewer>
+        <ContentControl DockPanel.Dock="Top" Padding="4" Content="{Binding PageViewModel}"/>
     </DockPanel>
 </controls:FlexibleWindow>

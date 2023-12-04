@@ -1,13 +1,10 @@
-using Avalonia.Media.Imaging;
-using Avalonia.Platform;
+using Avalonia;
+using Avalonia.Controls;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using OneWare.AI.Settings;
-using OneWare.SDK.Converters;
+using OneWare.AI.ViewModels.Pages;
 using OneWare.SDK.ViewModels;
-using OneWare.Settings;
 using OneWare.Settings.ViewModels;
-using OneWare.Settings.ViewModels.SettingTypes;
 
 namespace OneWare.AI.ViewModels;
 
@@ -16,27 +13,19 @@ public partial class AiGeneratorViewModel :  FlexibleWindowViewModelBase
     [ObservableProperty]
     [NotifyCanExecuteChangedFor(nameof(CreateCommand))]
     private bool _setupFinished;
-    
-    public SettingsCollectionViewModel SettingsCollection { get; } = new("Project Properties")
-    {
-        ShowTitle = false
-    };
+
+    [ObservableProperty]
+    private PageViewModelBase _pageViewModel;
 
     public AiGeneratorViewModel()
     {
-        var aiType = new ListWithIconSetting("AI Model Type", "What kind of AI Model do you want to create?", "Image Detection", 
-            [
-                new ListWithIconSettingOption("Image Detection", "Trains a model for image detection", new Bitmap(AssetLoader.Open(new Uri("avares://OneWare.AI/Assets/ImageDetection.jpeg")))),
-                new ListWithIconSettingOption("Sensor Prediction", "Used for prediction of sensors", new Bitmap(AssetLoader.Open(new Uri("avares://OneWare.AI/Assets/SensorPrediction.jpeg")))),
-                new ListWithIconSettingOption("Image Fusion", "How to create a nuclear fusion reactor (easy)",new Bitmap(AssetLoader.Open(new Uri("avares://OneWare.AI/Assets/ImageFusion.jpeg"))))
-            ]);
-        SettingsCollection.SettingModels.Add(new ListWithIconSettingViewModel(aiType));
+        _pageViewModel = new PageOneViewModel();
     }
 
     [RelayCommand(CanExecute = nameof(CanContinue))]
     private void Continue()
     {
-        
+        PageViewModel = new PageTwoViewModel();
     }
 
     private bool CanContinue()

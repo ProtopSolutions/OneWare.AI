@@ -4,9 +4,9 @@ using Avalonia.Markup.Xaml;
 
 namespace OneWare.AI.Views;
 
-public partial class ListWithIconSettingView : UserControl
+public partial class ListWithIconView : UserControl
 {
-    public ListWithIconSettingView()
+    public ListWithIconView()
     {
         InitializeComponent();
     }

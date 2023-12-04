@@ -1,4 +1,6 @@
-﻿using CommunityToolkit.Mvvm.Input;
+﻿using Avalonia;
+using Avalonia.Markup.Xaml.Styling;
+using CommunityToolkit.Mvvm.Input;
 using OneWare.AI.ViewModels;
 using OneWare.AI.Views;
 using OneWare.SDK.Models;
@@ -17,6 +19,12 @@ public class OneWareAiModule : IModule
 
     public void OnInitialized(IContainerProvider containerProvider)
     {
+        Application.Current?.Resources.MergedDictionaries.Add(
+            new ResourceInclude(new Uri("avares://OneWare.AI"))
+            {
+                Source = new Uri("avares://OneWare.AI/Styles/Ressources.axaml")
+            });
+        
         var windowService = containerProvider.Resolve<IWindowService>();
         
         //This example adds a context menu for .vhd files

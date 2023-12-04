@@ -1,0 +1,28 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:OneWare.AI.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="OneWare.AI.Views.ListWithIconView" x:DataType="viewModels:ListWithIconViewModel">
+    
+    <ListBox ItemsSource="{Binding Options}" SelectedItem="{Binding SelectedOption}" 
+             CornerRadius="3" BorderBrush="{DynamicResource ThemeBorderLowBrush}">
+        <ListBox.ItemTemplate>
+            <DataTemplate>
+                <Border Padding="3">
+                    <Grid ColumnDefinitions="Auto, *">
+                        <Image Grid.RowSpan="2" Height="50" Source="{Binding Icon}"/>
+                        <StackPanel Grid.Column="1" Orientation="Vertical" Margin="10 5" Spacing="5" VerticalAlignment="Center">
+                            <TextBlock Text="{Binding Title}"
+                                       FontWeight="Bold"
+                                       VerticalAlignment="Center" />
+                            <TextBlock Text="{Binding Description}"
+                                       VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </DataTemplate>
+        </ListBox.ItemTemplate>
+    </ListBox>
+</UserControl>
