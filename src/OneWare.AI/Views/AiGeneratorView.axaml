@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:controls="clr-namespace:OneWare.SDK.Controls;assembly=OneWare.SDK"
              xmlns:viewModels="clr-namespace:OneWare.AI.ViewModels"
+             xmlns:behaviours="clr-namespace:OneWare.SDK.Behaviours;assembly=OneWare.SDK"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              PrefWidth="600" PrefHeight="400"
              Title="OneWare AI Generator"
@@ -11,18 +12,30 @@
              WindowStartupLocation="CenterOwner"
              Padding="4"
              x:Class="OneWare.AI.Views.AiGeneratorView" x:DataType="viewModels:AiGeneratorViewModel">
+    <Interaction.Behaviors>
+        <behaviours:CommandOnEnterBehaviour Command="{Binding NextCommand}"/>
+    </Interaction.Behaviors>
+    
     <DockPanel>
         <StackPanel DockPanel.Dock="Bottom" Margin="8" Classes="WindowButtons" HorizontalAlignment="Right"
                     VerticalAlignment="Bottom">
+            <!--
             <Button Command="{Binding Close}"
                     CommandParameter="{Binding #AiGeneratorViewView}">
                 <TextBlock Text="Cancel" />
             </Button>
-            <Button Background="{DynamicResource HighlightBrush}" Command="{Binding ContinueCommand}"
+            -->
+            <Button Command="{Binding BackCommand}"
                     CommandParameter="{Binding #AiGeneratorViewView}">
-                <TextBlock Text="Continue" />
+                <TextBlock Text="Back" />
+            </Button>
+            <Button Command="{Binding NextCommand}"
+                    Background="{DynamicResource ThemeAccentBrush}"
+                    IsEnabled="{Binding SelectedPage.CanContinue}"
+                    CommandParameter="{Binding #AiGeneratorViewView}">
+                <TextBlock Text="Next" />
             </Button>
         </StackPanel>
-        <ContentControl DockPanel.Dock="Top" Padding="4" Content="{Binding PageViewModel}"/>
+        <ContentControl DockPanel.Dock="Top" Padding="4" Content="{Binding SelectedPage}"/>
     </DockPanel>
 </controls:FlexibleWindow>

@@ -2,7 +2,8 @@
 
 namespace OneWare.AI.ViewModels.Pages;
 
-public class PageViewModelBase : ObservableObject
+public abstract partial class PageViewModelBase : ObservableObject
 {
-    
+    [ObservableProperty]
+    private bool _canContinue;
 }

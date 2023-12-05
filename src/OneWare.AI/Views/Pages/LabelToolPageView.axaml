@@ -1,0 +1,23 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:pages="clr-namespace:OneWare.AI.ViewModels.Pages"
+             xmlns:controls="clr-namespace:OneWare.AI.Controls"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="OneWare.AI.Views.Pages.LabelToolPageView" x:DataType="pages:LabelToolPageViewModel">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Vertical" Spacing="5">
+            <TextBlock Text="{Binding PageOneTitle}" FontWeight="Bold" />
+            <TextBlock Text="{Binding PageOneDescription}" />
+        </StackPanel>
+
+        <Border DockPanel.Dock="Top" Margin="0 5 0 5" Padding="5" Background="{DynamicResource ThemeControlLowBrush}" CornerRadius="3" 
+                BorderThickness="1" BorderBrush="{DynamicResource ThemeBorderLowBrush}">
+            <Panel>
+                <Image Source="{Binding Image}" />
+                <controls:ImageDrawControl/>
+            </Panel>
+        </Border>
+    </DockPanel>
+</UserControl>

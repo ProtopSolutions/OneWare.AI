@@ -1,4 +1,5 @@
 ﻿using Avalonia;
+using Avalonia.Controls;
 using Avalonia.Markup.Xaml.Styling;
 using CommunityToolkit.Mvvm.Input;
 using OneWare.AI.ViewModels;
@@ -52,6 +53,7 @@ public class OneWareAiModule : IModule
         windowService.RegisterMenuItem("MainWindow_MainMenu/Ai", new MenuItemViewModel("OpenAiCreator")
         {
             Header = "Open AI Generator",
+            ImageIconObservable = Application.Current!.GetResourceObservable("VSImageLib2019.IntellisenseLightBulb_16x"),
             Command = new AsyncRelayCommand(() => windowService.ShowDialogAsync(new AiGeneratorView()
             {
                 DataContext = new AiGeneratorViewModel()
