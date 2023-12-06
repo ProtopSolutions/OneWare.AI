@@ -16,29 +16,7 @@
     </ItemGroup>
     
     <ItemGroup>
-        <PackageReference Include="OneWare.SDK" Version="0.12.4" Private="false" ExcludeAssets="runtime;Native" />
-        <PackageReference Include="OneWare.Settings" Version="0.12.4" Private="false" ExcludeAssets="runtime;Native" />
-    </ItemGroup>
-    
-    <ItemGroup>
-      <UpToDateCheckInput Remove="Views\Pages\PageOne.axaml" />
-      <UpToDateCheckInput Remove="Assets\1D.png" />
-      <UpToDateCheckInput Remove="Assets\2D.png" />
-      <UpToDateCheckInput Remove="Assets\Fusion.png" />
-      <UpToDateCheckInput Remove="Assets\ImageDetection.jpeg" />
-      <UpToDateCheckInput Remove="Assets\ImageFusion.jpeg" />
-      <UpToDateCheckInput Remove="Assets\SensorPrediction.jpeg" />
-    </ItemGroup>
-    
-    <ItemGroup>
-      <Compile Update="Views\Pages\PageOneView.axaml.cs">
-        <DependentUpon>PageOneView.axaml</DependentUpon>
-        <SubType>Code</SubType>
-      </Compile>
-      <Compile Update="Views\Pages\PageTwoView.axaml.cs">
-        <DependentUpon>PageTwoView.axaml</DependentUpon>
-        <SubType>Code</SubType>
-      </Compile>
+        <PackageReference Include="OneWare.SDK" Version="0.12.5" Private="false" ExcludeAssets="runtime;Native" />
     </ItemGroup>
     
 </Project>

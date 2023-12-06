@@ -4,7 +4,6 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using OneWare.AI.ViewModels.Pages;
 using OneWare.SDK.ViewModels;
-using OneWare.Settings.ViewModels;
 
 namespace OneWare.AI.ViewModels;
 
