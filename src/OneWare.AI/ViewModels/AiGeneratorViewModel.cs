@@ -27,7 +27,8 @@ public partial class AiGeneratorViewModel :  FlexibleWindowViewModelBase
         PageViewModelBase nextScreen = SelectedPage switch
         {
             PageOneViewModel => new PageTwoViewModel(),
-            PageTwoViewModel => new LabelToolPageViewModel(),
+            PageTwoViewModel => new UploadPageViewModel(),
+            UploadPageViewModel => new LabelToolPageViewModel(),
             LabelToolPageViewModel => new ModelComplexityPageViewModel(),
             _ => new PageOneViewModel()
         };

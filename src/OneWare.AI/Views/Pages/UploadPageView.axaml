@@ -1,0 +1,36 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:pages="clr-namespace:OneWare.AI.ViewModels.Pages"
+             xmlns:converters="clr-namespace:OneWare.SDK.Converters;assembly=OneWare.SDK"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="OneWare.AI.Views.Pages.UploadPageView" x:DataType="pages:UploadPageViewModel">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Vertical" Spacing="2">
+            <Button Classes="BorderButton" BorderThickness="1 0 1 1" Content="Select Files" Command="{Binding SelectFilesAsync}"
+                    CommandParameter="{Binding $self}"/>
+        </StackPanel>
+
+        <StackPanel DockPanel.Dock="Top" Orientation="Vertical" Spacing="5">
+            <TextBlock Text="{Binding PageTitle}" FontWeight="Bold" />
+            <TextBlock Text="{Binding PageDescription}" />
+        </StackPanel>
+        
+        <ListBox ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="{DynamicResource ThemeBorderLowBrush}"
+                 ItemsSource="{Binding Files}" Background="{DynamicResource ThemeControlLowBrush}">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Image Margin="2" Height="150" Width="150" Stretch="UniformToFill" 
+                           Source="{Binding }"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        
+    </DockPanel>
+</UserControl>
