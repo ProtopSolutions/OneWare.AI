@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:pages="clr-namespace:OneWare.AI.ViewModels.Pages"
              xmlns:converters="clr-namespace:OneWare.SDK.Converters;assembly=OneWare.SDK"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450" Name="UploadPageViewView"
              x:Class="OneWare.AI.Views.Pages.UploadPageView" x:DataType="pages:UploadPageViewModel">
     <DockPanel>
         <StackPanel DockPanel.Dock="Bottom" Orientation="Vertical" Spacing="2">
@@ -17,20 +17,22 @@
             <TextBlock Text="{Binding PageDescription}" />
         </StackPanel>
         
-        <ListBox ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="{DynamicResource ThemeBorderLowBrush}"
+        <ItemsControl ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="{DynamicResource ThemeBorderLowBrush}"
                  ItemsSource="{Binding Files}" Background="{DynamicResource ThemeControlLowBrush}">
-            <ListBox.ItemsPanel>
+            <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel/>
                 </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
-            <ListBox.ItemTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Image Margin="2" Height="150" Width="150" Stretch="UniformToFill" 
-                           Source="{Binding }"/>
+                    <Button Command="{Binding CreateLabelAsync}" CommandParameter="{Binding #UploadPageViewView}">
+                        <Image Margin="2" Height="150" Width="150" Stretch="UniformToFill" 
+                               Source="{Binding Image}"/>
+                    </Button>
                 </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
         
     </DockPanel>
 </UserControl>

@@ -3,7 +3,6 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:pages="clr-namespace:OneWare.AI.ViewModels.Pages"
-             xmlns:viewModels="clr-namespace:OneWare.AI.ViewModels"
              xmlns:views="clr-namespace:OneWare.AI.Views"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="OneWare.AI.Views.Pages.PageOneView" x:DataType="pages:PageOneViewModel">
@@ -14,6 +13,10 @@
         </StackPanel>
         
         <views:ListWithIconView DockPanel.Dock="Bottom" Margin="0 5 0 0"
-                                DataContext="{Binding Selection}"/>
+                                DataContext="{Binding Selection}">
+            <Interaction.Behaviors>
+                <FocusOnAttachedToVisualTreeBehavior/>
+            </Interaction.Behaviors>
+            </views:ListWithIconView>
     </DockPanel>
 </UserControl>

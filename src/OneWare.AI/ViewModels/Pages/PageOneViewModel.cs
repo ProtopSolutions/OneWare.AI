@@ -1,5 +1,6 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
+using CommunityToolkit.Mvvm.ComponentModel;
 using DynamicData.Binding;
 using OneWare.AI.Models;
 
@@ -36,5 +37,7 @@ public class PageOneViewModel : PageViewModelBase
         {
             CanContinue = x != null;
         });
+
+        //Selection.SelectedOption = Selection.Options.FirstOrDefault();
     }
 }

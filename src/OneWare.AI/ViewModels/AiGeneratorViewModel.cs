@@ -1,5 +1,6 @@
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Threading;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using OneWare.AI.ViewModels.Pages;
@@ -28,13 +29,16 @@ public partial class AiGeneratorViewModel :  FlexibleWindowViewModelBase
         {
             PageOneViewModel => new PageTwoViewModel(),
             PageTwoViewModel => new UploadPageViewModel(),
-            UploadPageViewModel => new LabelToolPageViewModel(),
-            LabelToolPageViewModel => new ModelComplexityPageViewModel(),
+            UploadPageViewModel => new FilterPageViewModel(),
+            FilterPageViewModel => new ModelComplexityPageViewModel(),
             _ => new PageOneViewModel()
         };
         
-        _pageStack.Push(nextScreen);
-        SelectedPage = _pageStack.Peek();
+        Dispatcher.UIThread.Post(() =>
+        {
+            _pageStack.Push(nextScreen);
+            SelectedPage = _pageStack.Peek();
+        });
     }
 
     [RelayCommand(CanExecute = nameof(CanBack))]

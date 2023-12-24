@@ -2,6 +2,10 @@
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Media;
+using OneWare.AI.Models;
+using OneWare.SDK.Enums;
+using OneWare.SDK.Services;
+using Prism.Ioc;
 
 namespace OneWare.AI.Controls;
 
@@ -9,8 +13,15 @@ public class ImageDrawControl : Control
 {
     private readonly Pen _transparentPen = new Pen();
     private readonly Pen _rectanglePen = new Pen(Brushes.Brown, 2);
+    
+    public static readonly StyledProperty<ImageModel> ImageModelProperty =
+        AvaloniaProperty.Register<ImageDrawControl, ImageModel>(nameof(StyledElement));
 
-    public List<Rect> Rects { get; } = new();
+    public ImageModel ImageModel
+    {
+        get => GetValue(ImageModelProperty);
+        set => SetValue(ImageModelProperty, value);
+    }
 
     private bool _isPressed;
     private Point? _startPoint;
@@ -45,8 +56,8 @@ public class ImageDrawControl : Control
             if (_startPoint.HasValue)
             {
                 var endPoint = e.GetPosition(this);
-                Rects.Add(new Rect(_startPoint.Value, endPoint));
-                InvalidateVisual();
+                var newRect = new Rect(_startPoint.Value, endPoint);
+                _ = CreateLabelAsync(newRect);
             }
 
             _startPoint = null;
@@ -54,13 +65,24 @@ public class ImageDrawControl : Control
         }
     }
 
+    private async Task CreateLabelAsync(Rect rect)
+    {
+        var name = await ContainerLocator.Container.Resolve<IWindowService>().ShowInputAsync("Enter name",
+            "Enter a name for the label", MessageBoxIcon.Info, null, TopLevel.GetTopLevel(this) as Window);
+
+        if (name == null) return;
+        
+        ImageModel.Labels.Add(new ImageLabelModel(name, rect));
+        InvalidateVisual();
+    }
+
     public override void Render(DrawingContext context)
     {
         context.DrawRectangle(Brushes.Transparent, _transparentPen, Bounds);
 
-        foreach (var rect in Rects)
+        foreach (var label in ImageModel.Labels)
         {
-            context.DrawRectangle(Brushes.Transparent, _rectanglePen, rect);
+            context.DrawRectangle(Brushes.Transparent, _rectanglePen, label.Area);
         }
 
         if (_isPressed && _startPoint.HasValue && _currentPoint.HasValue)

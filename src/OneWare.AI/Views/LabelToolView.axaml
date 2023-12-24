@@ -1,0 +1,35 @@
+﻿<controls1:FlexibleWindow xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:pages="clr-namespace:OneWare.AI.ViewModels.Pages"
+             xmlns:controls="clr-namespace:OneWare.AI.Controls"
+             xmlns:viewModels="clr-namespace:OneWare.AI.ViewModels"
+             PrefWidth="400" PrefHeight="300"
+             Padding="4"
+             xmlns:controls1="clr-namespace:OneWare.SDK.Controls;assembly=OneWare.SDK"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450" Name="LabelToolViewView"
+             x:Class="OneWare.AI.Views.LabelToolView" x:DataType="viewModels:LabelToolViewModel">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Bottom" Margin="8" Classes="WindowButtons" HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom">
+            <Button Command="{Binding Close}"
+                    CommandParameter="{Binding #LabelToolViewView}">
+                <TextBlock Text="Close" />
+            </Button>
+        </StackPanel>
+        
+        <StackPanel Margin="4" DockPanel.Dock="Top" Orientation="Vertical" Spacing="5">
+            <TextBlock Text="{Binding PageOneTitle}" FontWeight="Bold" />
+            <TextBlock Text="{Binding PageOneDescription}" />
+        </StackPanel>
+
+        <Border DockPanel.Dock="Top" Margin="0 5 0 5" Padding="4" Background="{DynamicResource ThemeControlLowBrush}" CornerRadius="3" 
+                BorderThickness="1" BorderBrush="{DynamicResource ThemeBorderLowBrush}">
+            <Panel>
+                <Image Source="{Binding Model.Image}" />
+                <controls:ImageDrawControl ImageModel="{Binding Model}"/>
+            </Panel>
+        </Border>
+    </DockPanel>
+</controls1:FlexibleWindow>

@@ -3,11 +3,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModels="clr-namespace:OneWare.AI.ViewModels"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450" Focusable="True"
              x:Class="OneWare.AI.Views.ListWithIconView" x:DataType="viewModels:ListWithIconViewModel">
     
     <ListBox ItemsSource="{Binding Options}" SelectedItem="{Binding SelectedOption}" 
-             CornerRadius="3" BorderBrush="{DynamicResource ThemeBorderLowBrush}">
+             CornerRadius="3" BorderBrush="{DynamicResource ThemeBorderLowBrush}"
+             Name="ListBox" Focusable="True">
         <ListBox.ItemTemplate>
             <DataTemplate>
                 <Border Padding="3">

@@ -14,6 +14,10 @@
         </StackPanel>
         
         <views:ListWithIconView DockPanel.Dock="Bottom" Margin="0 5 0 0"
-                                DataContext="{Binding Selection}"/>
+                                DataContext="{Binding Selection}">
+            <Interaction.Behaviors>
+                <FocusOnAttachedToVisualTreeBehavior/>
+            </Interaction.Behaviors>
+            </views:ListWithIconView>
     </DockPanel>
 </UserControl>
