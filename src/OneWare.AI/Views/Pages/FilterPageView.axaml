@@ -5,5 +5,22 @@
              xmlns:pages="clr-namespace:OneWare.AI.ViewModels.Pages"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="OneWare.AI.Views.Pages.FilterPageView" x:DataType="pages:FilterPageViewModel">
-    Welcome to Avalonia!
+    
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Vertical" Spacing="5">
+            <TextBlock Text="{Binding Title}" FontWeight="Bold" />
+            <TextBlock Text="{Binding Description}" />
+        </StackPanel>
+        
+        <Button DockPanel.Dock="Bottom" Content="Add Filter"/>
+        
+        <DataGrid DockPanel.Dock="Bottom" ItemsSource="{Binding Filter}" 
+                  Background="{DynamicResource ThemeControlLowBrush}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="Filter" Binding="{Binding Name}" />
+                <DataGridTextColumn Width="100" Header="Picture Count" Binding="{Binding PictureCount}" IsReadOnly="False"/>
+            </DataGrid.Columns>
+        </DataGrid>    
+    </DockPanel>
+    
 </UserControl>
